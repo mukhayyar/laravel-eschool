@@ -25,13 +25,17 @@ class Siswa extends Model
 
     public function rataRataNilai()
     {
-        $total = 0;
-        $hitung = 0;
-        foreach($this->mapel as $mapel){    
-            $total+= $mapel->pivot->nilai;
-            $hitung++;
+        if($this->mapel->isNotEmpty()){
+
+            $total = 0;
+            $hitung = 0;
+            foreach($this->mapel as $mapel){    
+                $total+= $mapel->pivot->nilai;
+                $hitung++;
+            }
+            return $total != 0 ? round($total/$hitung) : $total; 
         }
-        return round($total/$hitung);
+        return 0;
     }
 
     public function namaLengkap()
