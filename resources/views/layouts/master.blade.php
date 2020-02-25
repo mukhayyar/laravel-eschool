@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="{{asset('/admin/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" href="{{asset('/admin/assets/vendor/font-awesome/css/font-awesome.min.css')}}">
 	<link rel="stylesheet" href="{{asset('/admin/assets/vendor/linearicons/style.css')}}">
-	<link rel="stylesheet" href="{{asset('/css/toaster.min.css')}}">
+	<link rel="stylesheet" href="{{asset('/css/toastr.min.css')}}">
 	@yield('header')
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="{{asset('/admin/assets/css/main.css')}}">
@@ -95,8 +95,14 @@
 	<script src="{{asset('/admin/assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('/admin/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
 	<script src="{{asset('/admin/assets/scripts/klorofil-common.js')}}"></script>
-	<script src="{{asset('/js/sweetalert2.js')}}"></script>
-	<script src="{{asset('/js/toaster.min.js')}}"></script>
+	<script src="{{asset('/js/toastr.min.js')}}"></script>
+	<script src="{{asset('/js/sweetalert.min.js')}}"></script>
+	
+	<script>
+	@if(Session::has('sukses'))
+		toastr.success("{{Session::get('sukses')}}","Sukses")
+	@endif
+	</script>
 @yield('footer')
 	
 </body>

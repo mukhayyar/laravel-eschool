@@ -55,20 +55,18 @@ class SiswaController extends Controller
         return redirect('/siswa')->with('sukses','Data berhasil dimasukkan') ;
     }
 
-    public function edit($id)
+    public function edit(Siswa $siswa)
     {
-        $siswa = Siswa::find($id);
         return view('siswa/edit',['siswa' => $siswa]);
     }
 
-    public function update(Request $request,$id)
+    public function update(Request $request,Siswa $siswa)
     {
         $this->validate($request,[
             'nama_depan' => 'required|min:5',
             'nama_belakang' => 'required|min:5',
             'avatar' => 'mimes:png,jpg'
         ]);
-        $siswa = Siswa::find($id);
         $siswa->update($request->all());
         if($request->hasFile('avatar')){
             $request->file('avatar')->move('images/',$request->file('avatar')->getClientOriginalName());
@@ -78,17 +76,14 @@ class SiswaController extends Controller
         return redirect('\siswa')->with('sukses','Data berhasil diupdate');
     }
 
-    public function delete($id)
+    public function delete(Siswa $siswa)
     {
-        $siswa = Siswa::find($id);
         $siswa->delete($siswa);
-        //$user = \App\Siswa::find($id);
         return redirect('/siswa')->with('sukses','Data berhasil dihapus');
     }
 
-    public function profile($id)
+    public function profile(Siswa $siswa)
     {
-        $siswa = Siswa::find($id);
         $matapelajaran = Mapel::all();
 
         //menyiapkan data pada chart
@@ -103,19 +98,17 @@ class SiswaController extends Controller
             }
         }
 
-        //dd(json_encode($categories));
 
         return view('siswa/profile',['siswa'=>$siswa,'matapelajaran'=>$matapelajaran,'categories'=>$categories,'data'=>$data]);
     }
 
-    public function addnilai(Request $request,$idsiswa)
+    public function addnilai(Request $request,Siswa $siswa)
     {
-        $siswa = Siswa::find($idsiswa);
         if($siswa->mapel()->where('mapel_id',$request->mapel)->exists()){
-            return redirect('siswa/'.$idsiswa.'/profile')->with('error','Data sudah ada');
+            return redirect('siswa/'.$siswa->id.'/profile')->with('error','Data sudah ada');
         }
         $siswa->mapel()->attach($request->mapel,['nilai' => $request->nilai]);
-        return redirect('siswa/'.$idsiswa.'/profile')->with('sukses','Data Berhasil Dimasukkan'); 
+        return redirect('siswa/'.$siswa->id.'/profile')->with('sukses','Data Berhasil Dimasukkan'); 
     }
 
     public function deletenilai($idsiswa, $idmapel)
