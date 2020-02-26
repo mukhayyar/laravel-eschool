@@ -56,7 +56,7 @@
 							</ul>
 						</li>
 						<!-- <li>
-							<a class="update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
+							
 						</li> -->
 					</ul>
 				</div>
@@ -71,6 +71,9 @@
 						<li><a href="/dashboard" class="@yield('aktif1')"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
 						@if(auth()->user()->role == 'admin')
 						<li><a href="/siswa" class="@yield('aktif2')"><i class="lnr lnr-user"></i> <span>Siswa</span></a></li>
+						@endif
+						@if(auth()->user()->role == 'admin')
+						<li><a href="/post" class="@yield('aktif3')"><i class="lnr lnr-pencil"></i> <span>Post Article</span></a></li>
 						@endif
 					</ul>
 				</nav>
