@@ -6,40 +6,40 @@
 						<div class="col-lg-4">
 							<div class="single-feature">
 								<div class="title">
-									<h4>Digitalisasi Belajar</h4>
+									<h4>{{config('sekolah.home-feature-column-1-title')}}</h4>
 								</div>
 								<div class="desc-wrap">
 									<p>
 										Usage of the Internet is becoming more common due to rapid advancement
 										of technology.
 									</p>
-									<a href="#">Daftar Sekarang</a>									
+									<a href="#">{{config('sekolah.home-feature-column-1-link-text')}}</a>									
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-4">
 							<div class="single-feature">
 								<div class="title">
-									<h4>Lembaga pendidikan terbaik di Jawa Timur</h4>
+									<h4>{{config('sekolah.home-feature-column-2-title')}}</h4>
 								</div>
 								<div class="desc-wrap">
 									<p>
 										For many of us, our very first experience of learning about the celestial bodies begins when we saw our first.
 									</p>
-									<a href="#">Daftar Sekarang</a>									
+									<a href="#">{{config('sekolah.home-feature-column-2-link-text')}}</a>									
 								</div>
 							</div>
 						</div>
 						<div class="col-lg-4">
 							<div class="single-feature">
 								<div class="title">
-									<h4>Perpustakaan Besar</h4>
+									<h4>{{config('sekolah.home-feature-column-3-title')}}</h4>
 								</div>
 								<div class="desc-wrap">
 									<p>
 										If you are a serious astronomy fanatic like a lot of us are, you can probably remember that one event.
 									</p>
-									<a href="#">Daftar Sekarang</a>									
+									<a href="#">{{config('sekolah.home-feature-column-3-link-text')}}</a>									
 								</div>
 							</div>
 						</div>												
