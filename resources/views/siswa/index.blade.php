@@ -33,7 +33,7 @@
                                     
 								</div>
 								<div class="panel-body">
-									<table class="table table-hover">
+									<table class="table table-hover" id="datatable">
 										<thead>
 											<tr>
 												<th>Nama Depan</th>
@@ -146,21 +146,25 @@
 @stop
 @section('footer')
     <script>
-        $(".delete").click(function(){
-            var siswa_id = $(this).attr('siswa-id');
-            swal({
-  title: "Yakin?",
-  text: "Akan menghapus data siswa dengan id "+siswa_id+ " ??",
-  icon: "warning",
-  buttons: true,
-  dangerMode: true,
-})
-.then((willDelete) => {
-    console.log(willDelete);
-  if (willDelete) {
-    window.location = "/siswa/"+siswa_id+"/delete";
-  } 
-});
-});
+        $(document).ready(function(){
+            $('#datatable').DataTable();
+            
+            $(".delete").click(function(){
+                var siswa_id = $(this).attr('siswa-id');
+                swal({
+                    title: "Yakin?",
+                    text: "Akan menghapus data siswa dengan id "+siswa_id+ " ??",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                .then((willDelete) => {
+                    console.log(willDelete);
+                    if (willDelete) {
+                    window.location = "/siswa/"+siswa_id+"/delete";
+                    } 
+                });
+            });
+        });
     </script>
 @stop

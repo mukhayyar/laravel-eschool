@@ -10,8 +10,7 @@
 								</div>
 								<div class="desc-wrap">
 									<p>
-										Usage of the Internet is becoming more common due to rapid advancement
-										of technology.
+										{{config('sekolah.home-feature-column-1-content')}}
 									</p>
 									<a href="#">{{config('sekolah.home-feature-column-1-link-text')}}</a>									
 								</div>
@@ -24,7 +23,7 @@
 								</div>
 								<div class="desc-wrap">
 									<p>
-										For many of us, our very first experience of learning about the celestial bodies begins when we saw our first.
+										{{config('sekolah.home-feature-column-2-content')}}
 									</p>
 									<a href="#">{{config('sekolah.home-feature-column-2-link-text')}}</a>									
 								</div>
@@ -37,7 +36,7 @@
 								</div>
 								<div class="desc-wrap">
 									<p>
-										If you are a serious astronomy fanatic like a lot of us are, you can probably remember that one event.
+										{{config('sekolah.home-feature-column-3-content')}}
 									</p>
 									<a href="#">{{config('sekolah.home-feature-column-3-link-text')}}</a>									
 								</div>

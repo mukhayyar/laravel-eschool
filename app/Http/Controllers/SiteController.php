@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\User;
 use App\Siswa;
+use App\Post;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
@@ -10,17 +12,18 @@ class SiteController extends Controller
 {
     public function home()
     {
-        return view('webblog.index');
+        $posts = Post::all();
+        return view('sites.index',compact(['posts']));
     }
 
     public function about()
     {
-        return view('webblog.about');
+        return view('sites.about');
     }
 
     public function daftar()
     {
-        return view('webblog.daftar');
+        return view('sites.daftar');
     }
     
     public function postregister(Request $request)
@@ -39,8 +42,9 @@ class SiteController extends Controller
         return redirect('/')->with('sukses','Data berhasil dimasukkan');
     }
 
-    public function blog()
+    public function singlepost($slug)
     {
-        return view('webblog.blog');
+        $post = Post::where('slug','=',$slug)->first();
+        return view('sites.singlepost',compact(['post']));
     }
 }

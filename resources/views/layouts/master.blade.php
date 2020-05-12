@@ -14,13 +14,17 @@
 	@yield('header')
 	<!-- MAIN CSS -->
 	<link rel="stylesheet" href="{{asset('/admin/assets/css/main.css')}}">
-	<!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
-	<link rel="stylesheet" href="assets/css/demo.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="{{asset('/admin/assets/img/apple-icon.png')}}">
 	<link rel="icon" type="image/png" sizes="96x96" href="{{asset('/admin/assets/img/favicon.png')}}">
+	<style>
+	.ck-editor__editable {
+    min-height: 450px;
+	}
+	</style>
 </head>
 
 <body>
@@ -73,7 +77,7 @@
 						<li><a href="/siswa" class="@yield('aktif2')"><i class="lnr lnr-user"></i> <span>Siswa</span></a></li>
 						@endif
 						@if(auth()->user()->role == 'admin')
-						<li><a href="/post" class="@yield('aktif3')"><i class="lnr lnr-pencil"></i> <span>Post Article</span></a></li>
+						<li><a href="/posts" class="@yield('aktif3')"><i class="lnr lnr-pencil"></i> <span>Post Article</span></a></li>
 						@endif
 					</ul>
 				</nav>
@@ -94,19 +98,22 @@
 	</div>
 	<!-- END WRAPPER -->
 	<!-- Javascript -->
-	<script src="{{asset('/admin/assets/vendor/jquery/jquery.min.js')}}"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
 	<script src="{{asset('/admin/assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('/admin/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
 	<script src="{{asset('/admin/assets/scripts/klorofil-common.js')}}"></script>
 	<script src="{{asset('/js/toastr.min.js')}}"></script>
 	<script src="{{asset('/js/sweetalert.min.js')}}"></script>
+	<script src="{{asset('/webblog/js/ckeditor.js')}}"></script>
+	<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+	
 	
 	<script>
 	@if(Session::has('sukses'))
 		toastr.success("{{Session::get('sukses')}}","Sukses")
 	@endif
 	</script>
-@yield('footer')
+	@yield('footer')
 	
 </body>
 
